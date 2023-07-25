@@ -40,10 +40,10 @@ if __name__ == "__main__":
     y = dataset[['PorcentajeToxicos','Toxicos']]
     
     #Normalizados
-    dataset = StandardScaler().fit_transform(dataset)
+    #dataset = StandardScaler().fit_transform(dataset)
     #Discretizados
-    #discretizer = KBinsDiscretizer(n_bins=5, encode="ordinal", strategy="uniform")
-    #dataset = discretizer.fit_transform(dataset)
+    discretizer = KBinsDiscretizer(n_bins=5, encode="ordinal", strategy="uniform")
+    dataset = discretizer.fit_transform(dataset)
   
     
     # Imprimimos los conjutos que creamos 
@@ -113,8 +113,8 @@ if __name__ == "__main__":
     print("Coeficientes elastic net:")
     print(modelElasticNet.coef_) 
     
-    print('DATOS NORMALIZADOS')
-    #print('DATOS DISCRETIZADOS')
+    #print('DATOS NORMALIZADOS')
+    print('DATOS DISCRETIZADOS')
     
     #Calculamos nuestra exactitud de nuestra predicción lineal
     print("="*32)

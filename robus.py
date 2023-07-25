@@ -17,10 +17,10 @@ if __name__ == "__main__":
     X = dataset.drop(['PorcentajeToxicos' , 'Toxicos'], axis=1)
     y = dataset['PorcentajeToxicos']
     y = dataset['Toxicos']
-    dataset = StandardScaler().fit_transform(dataset) #Normalización
+    #dataset = StandardScaler().fit_transform(dataset) #Normalización
     #Datos Discretizados
-   # discretizer = KBinsDiscretizer(n_bins=5, encode="ordinal", strategy="uniform")
-    #dataset = discretizer.fit_transform(dataset)
+    discretizer = KBinsDiscretizer(n_bins=5, encode="ordinal", strategy="uniform")
+    dataset = discretizer.fit_transform(dataset)
     
     
     X_train, X_test, y_train, y_test = train_test_split(X,y, 
